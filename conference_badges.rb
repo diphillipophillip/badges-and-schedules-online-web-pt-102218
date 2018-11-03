@@ -2,30 +2,32 @@ def badge_maker(name)
   "Hello, my name is #{name}."
 end
 
-def batch_badge_creator(speakers)
-badge_messages = []
-speakers.each do |i| 
-  badge_messages << badge_maker(i)
+def batch_badge_creator(attendees)
+  arr = []
+  attendees.each do |att|
+    arr << "Hello, my name is #{att}."
 end
-badge_messages
-end
-
-def assign_rooms(speakers)
-  room_assignments = []
-  counter = 1
-  speakers.each do |i|
-    room_assignments << "Hello, #{i}! You'll be assigned to room #{counter}!"
-    counter += 1
-end
-room_assignments
+arr
 end
 
-def printer(speakers)
-   batch_badge_creator(speakers).each do |batch|
-   puts batch
+def assign_rooms(attendees)
+  array = []
+  attendees.each_with_index do |attend, index|
+    index_plus_one = index + 1
+    array << "Hello, #{attend}! You'll be assigned to room #{index_plus_one}!"
+end
+array
+end
+
+def printer(attendees)
+  batch_badge_creator(attendees). each do |i|
+    puts i
  end
-  assign_rooms(speakers).each do |assignment|
-   puts assignment
-end
+ assign_rooms(attendees).each do |j|
+      puts j
+ end
+ end
 
-end
+
+
+
